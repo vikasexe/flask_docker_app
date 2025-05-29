@@ -10,7 +10,6 @@ Before you begin, ensure you have met the following requirements:
 - [Python](https://www.python.org/downloads/)
 - [PostgreSQL](https://www.postgresql.org/download/)
 
-## 1. Running the Application Locally
 
 ### Setting Up the Database
 
@@ -34,58 +33,8 @@ Before you begin, ensure you have met the following requirements:
    );
    ```
 
-### Running Flask App
 
-1. Clone the repository:
-
-   
-
-2. Create a virtual environment:
-
-   ```
-   python3 -m venv venv
-   # on Windows use `python -m venv venv`
-   ```
-3. Activate virtual environment:
-
-   ```
-   source venv/bin/activate
-   # On Windows use `venv\Scripts\activate`
-   ```
-
-4. Install the required dependencies:
-
-   ```
-   pip3 install -r requirements.txt
-   # On Windows use `pip install -r requirements.txt`
-   ```
-
-4. Start the Flask application:
-
-   ```
-   python3 app.py
-   # On Windows use `python app.py`
-   ```
-
-5. Access the application at `http://localhost:5000`.
-
-
-## 2. Running with Docker
-1. Build the Docker image:
-
-   ```
-   docker build -t my-flask-app .
-   ```
-
-2. Run the Docker container with host network (to access the local PostgreSQL server):
-
-   ```
-   docker run --network=host my-flask-app
-   ```
-
-3. Access the application at `http://localhost:5000`.
-
-## 3. Running App and Database with Docker compose
+## Running App and Database with Docker compose
 
 To run the application using docker compose:
 
@@ -94,6 +43,9 @@ docker compose up
 ```
 
 This will Run both the application and the database containers and will also create a table in the database using the sql script `init.sql`
+
+- Access the application at `http://localhost:5010`.
+
 
 To take it down run the following command:
 

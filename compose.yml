@@ -3,7 +3,7 @@ services:
     image: postgres:alpine
     restart: always
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_flask_data:/var/lib/postgresql/data
       - ./init:/docker-entrypoint-initdb.d
     environment:
       - POSTGRES_PASSWORD=123456
@@ -11,7 +11,8 @@ services:
     networks:
       - app-network
     ports:
-      - "5432:5432"
+      - "5432:5432" # Expose PostgreSQL on port 5432
+    # Healthcheck to ensure PostgreSQL is ready before app starts
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
@@ -33,10 +34,10 @@ services:
     networks:
       - app-network
     ports:
-      - "5000:5000"
+      - "5010:5000"
 
 volumes:
-  postgres_data:
+  postgres_flask_data:
 
 networks:
   app-network:
